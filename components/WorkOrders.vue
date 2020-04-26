@@ -50,7 +50,7 @@
       },
       async addWorker(orders) {
         // TODO set as env variable
-        const baseURL = 'https://www.hatchways.io/api/assessment'
+        const baseURL = '${process.env.baseURL}/api/assessment'
         let workers = []
         for (let i = 0; i < orders.length; i++) {
           const order = orders[i]
@@ -65,7 +65,7 @@
       },
       async getWorkOrder() {
         // TODO set as env variable
-        const baseURL = 'https://www.hatchways.io/api/assessment'
+        const baseURL = '${process.env.baseURL}/api/assessment'
         const workOrders = await this.$axios.$get(`${baseURL}/work_orders`)
         const {orders} = workOrders
         const sortedWorkOrders = this.sortOrder(orders)
